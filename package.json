@@ -8,7 +8,8 @@
     "build": "tsc",
     "build:dev": "tsc -w",
     "start": "node dist",
-    "start:dev": "node dist  --watch dist"
+    "start:dev": "node dist  --watch dist",
+    "prepare": "husky install"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.52.0",
@@ -21,6 +22,5 @@
     "prettier": "^2.8.4",
     "typescript": "^4.9.5"
   },
-  "dependencies": {
-  }
+  "dependencies": {}
 }
