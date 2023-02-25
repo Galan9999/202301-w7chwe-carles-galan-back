@@ -6,6 +6,9 @@ module.exports = {
   extends: ["xo", "prettier"],
   overrides: [
     {
+      rules: {
+        "@typescript-eslint/consistent-type-imports": "off",
+      },
       extends: ["xo-typescript", "prettier"],
       files: ["*.ts", "*.tsx"],
     },
