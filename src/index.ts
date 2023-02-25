@@ -1,11 +1,11 @@
-import "./loadEnvironment.jss";
+import "./loadEnvironment.js";
 import mongoose from "mongoose";
 import chalk from "chalk";
 import createDebug from "debug";
 import connectDataBase from "./database/connectDataBase.js";
 import startServer from "./server/startServer.js";
 
-export const debug = createDebug("socialNetwork:");
+export const debug = createDebug("socialNetwork:*");
 
 const port = process.env.PORT ?? 4000;
 const mongoDbUrl = process.env.MONGODB_CONNECTION_URL;
