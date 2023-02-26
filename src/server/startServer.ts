@@ -1,6 +1,6 @@
 import createDebug from "debug";
-import { app } from "./app.js";
 import { type CustomError } from "../CustomError/CustomError.js";
+import { app } from "./App.js";
 
 const debug = createDebug("robots:server:startServer");
 
