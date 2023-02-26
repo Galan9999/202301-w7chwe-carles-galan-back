@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import User from "../../database/User";
+import User from "../../database/User.js";
 import { CustomError } from "../../CustomError/CustomError.js";
 import { UserCredentials } from "../../types.js";
 
@@ -14,16 +14,18 @@ export const registerUser = async (
   res: Response,
   next: NextFunction
 ) => {
+  const { username, password, email } = req.body;
+  const saltLength = 8;
+
   try {
-    const { username, password } = req.body;
-    const salt = "gemma";
     const image = req.file?.filename;
 
-    const hashedPassword = await bcrypt.hash(password, salt);
+    const hashedPassword = await bcrypt.hash(password, saltLength);
 
     const user = await User.create({
       username,
       password: hashedPassword,
+      email,
       image,
     });
 
@@ -49,23 +51,44 @@ export const loginUser = async (
   next: NextFunction
 ) => {
   const { username, password } = req.body;
-  const user = await User.findOne({ username, password });
 
-  if (!user) {
-    const customError = new CustomError(
-      "Wrong credentials",
-      401,
-      "Wrong credentials"
-    );
+  const userToFind = username.toString();
 
-    next(customError);
+  try {
+    const user = await User.findOne({ username: userToFind }).exec();
+
+    if (!user) {
+      const error = new CustomError(
+        "Wrong credentials",
+        401,
+        "Wrong credentials"
+      );
+
+      next(error);
+
+      return;
+    }
+
+    if (!(await bcrypt.compare(password, user.password))) {
+      const error = new CustomError(
+        "Wrong credentials",
+        401,
+        "Wrong credentials"
+      );
+
+      next(error);
+
+      return;
+    }
+
+    const jwtPayload = {
+      sub: user?._id,
+    };
+
+    const token = jwt.sign(jwtPayload, process.env.JWT_SECRET!);
+
+    res.status(200).json({ token });
+  } catch (error) {
+    next(error);
   }
-
-  const jwtPayload = {
-    sub: user?._id,
-  };
-
-  const token = jwt.sign(jwtPayload, process.env.JWT!);
-
-  res.status(201).json({ user });
 };
