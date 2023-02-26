@@ -14,6 +14,7 @@ module.exports = {
         "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
         "@typescript-eslint/naming-convention": "off",
+        "@typescript-eslint/no-unsafe-argument": "off",
       },
       extends: ["xo-typescript", "prettier"],
       files: ["*.ts", "*.tsx"],
