@@ -1,9 +1,27 @@
 import { NextFunction, Request, Response } from "express";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
-import User from "../../database/User.js";
-import { CustomError } from "../../CustomError/CustomError.js";
-import { UserCredentials } from "../../types.js";
+import User from "../../../database/models/User.js";
+import { CustomError } from "../../../CustomError/CustomError.js";
+import { UserCredentials } from "../../../types.js";
+
+export const getUsers = async (
+  req: Request<
+    Record<string, unknown>,
+    Record<string, unknown>,
+    UserCredentials
+  >,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const users = await User.find().exec();
+
+    res.status(200).json({ users });
+  } catch (error) {
+    next(error);
+  }
+};
 
 export const registerUser = async (
   req: Request<
