@@ -13,6 +13,7 @@ module.exports = {
         ],
         "@typescript-eslint/consistent-type-imports": "off",
         "@typescript-eslint/consistent-type-assertions": "off",
+        "@typescript-eslint/naming-convention": "off",
       },
       extends: ["xo-typescript", "prettier"],
       files: ["*.ts", "*.tsx"],

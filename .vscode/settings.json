@@ -1,22 +1,41 @@
 {
-  "workbench.colorCustomizations": {
-    "activityBar.activeBackground": "#6c06de",
-    "activityBar.background": "#6c06de",
-    "activityBar.foreground": "#e7e7e7",
-    "activityBar.inactiveForeground": "#e7e7e799",
-    "activityBarBadge.background": "#d96a06",
-    "activityBarBadge.foreground": "#e7e7e7",
-    "commandCenter.border": "#e7e7e799",
-    "sash.hoverBorder": "#6c06de",
-    "statusBar.background": "#5405ac",
-    "statusBar.foreground": "#e7e7e7",
-    "statusBarItem.hoverBackground": "#6c06de",
-    "statusBarItem.remoteBackground": "#5405ac",
-    "statusBarItem.remoteForeground": "#e7e7e7",
-    "titleBar.activeBackground": "#5405ac",
-    "titleBar.activeForeground": "#e7e7e7",
-    "titleBar.inactiveBackground": "#5405ac99",
-    "titleBar.inactiveForeground": "#e7e7e799"
+  "liveServer.settings.CustomBrowser": "chrome",
+  "liveServer.settings.donotShowInfoMsg": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
   },
-  "peacock.color": "#5405ac"
+  "workbench.iconTheme": "vscode-icons",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "javascript.suggestionActions.enabled": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "typescript.suggestionActions.enabled": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[html]": {
+    "editor.linkedEditing": false
+  },
+  "editor.accessibilitySupport": "on",
+  "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "editorconfig.generateAuto": false,
+  "editorconfig.template": "C:\\Users\\carle\\OneDrive\\Escritorio\\isdi-bootcamp\\recursos\\.editorconfig",
+  "redhat.telemetry.enabled": false,
+  "liveshare.accessibility.voice": "es-ES-Elvira",
+  "workbench.editor.historyBasedLanguageDetection": false,
+  "workbench.editor.languageDetection": false,
+  "workbench.editor.languageDetectionHints": {
+    "untitledEditors": false,
+    "notebookEditors": false
+  },
+  "files.defaultLanguage": "english",
+  "workbench.colorCustomizations": {},
+  "editor.guides.bracketPairs": "active",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true
 }

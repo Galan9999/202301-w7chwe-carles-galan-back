@@ -1,8 +1,10 @@
 import { NextFunction, Request, Response } from "express";
 import createDebug from "debug";
-import { CustomError } from "../CustomError/CustomError";
+import { CustomError } from "../../CustomError/CustomError";
 
-export const debug = createDebug("");
+export const debug = createDebug(
+  "socialNetwork:server:middlewares:errorMiddlewares"
+);
 
 export const notFoundError = (
   req: Request,
