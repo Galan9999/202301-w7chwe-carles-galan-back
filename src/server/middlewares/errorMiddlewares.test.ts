@@ -1,5 +1,5 @@
 import { Response, Request, NextFunction } from "express";
-import { CustomError } from "../CustomError/CustomError";
+import { CustomError } from "../../CustomError/CustomError";
 import { generalError, notFoundError } from "./errorMiddlewares";
 
 const res = {
